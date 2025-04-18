@@ -16,5 +16,20 @@ pipeline {
                 sh 'make test'
             }
         }
+
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t nghex/tripadvisor-scraper-api:latest .'
+            }
+        }
+
+        stage('Docker Push') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'nghex', passwordVariable: 'nghexPassword', usernameVariable: 'nghexUser')]) {
+                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                    sh 'docker push nghex/tripadvisor-scraper-api:latest'
+                }
+            }
+        }
     }
 }
