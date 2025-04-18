@@ -7,11 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    go version
-
-                    echo "Building..."
-                    go mod download
-                    go build -o main cmd/api/main.go
+                    make build
                 '''
             }
         }
@@ -19,8 +15,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                    echo "Testing..."
-                    go test ./... -v
+                    make test
                 '''
             }
         }
