@@ -27,7 +27,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'nghex', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                     sh 'echo $USERNAME'
-                    sh 'echo $PASSWORD'
+                    sh 'env | grep PASSWORD'
                     // sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
                     // sh 'docker push nghex/tripadvisor-scraper-api:latest'
                 }
