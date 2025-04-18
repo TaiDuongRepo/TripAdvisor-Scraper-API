@@ -13,8 +13,6 @@ pipeline {
                 sh '''
                     go version
 
-                    go mod download
-
                     make test
                 '''
             }
