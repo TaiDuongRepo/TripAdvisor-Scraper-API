@@ -13,7 +13,8 @@ pipeline {
                 sh '''
                     go version
 
-                    make test
+                    echo "Testing..."
+                    go test ./... -v
                 '''
             }
         }
