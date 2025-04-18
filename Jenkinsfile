@@ -6,17 +6,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '''
-                    make build
-                '''
+                sh 'make --version'
+                sh 'make build'
             }
         }
 
         stage('Test') {
             steps {
-                sh '''
-                    make test
-                '''
+                sh 'make test'
             }
         }
     }
