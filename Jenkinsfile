@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        go 'golang'
+        go '1.20'
     }
 
     stages {
