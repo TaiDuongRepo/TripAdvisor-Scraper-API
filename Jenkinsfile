@@ -1,14 +1,12 @@
 pipeline {
     agent any
 
+    tools {
+        go '1.24.1'
+    }
+
     stages {
         stage('Build') {
-            agent {
-                docker {
-                    image 'golang:1.24.1-alpine'
-                    reuseNode true
-                }
-            }
             steps {
                 sh '''
                     go version
@@ -21,12 +19,6 @@ pipeline {
         }
 
         stage('Test') {
-            agent {
-                docker {
-                    image 'golang:1.24.1-alpine'
-                    reuseNode true
-                }
-            }
             steps {
                 sh '''
                     echo "Testing..."
