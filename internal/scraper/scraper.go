@@ -20,7 +20,7 @@ func Scraper(url string) string {
 	var location tripadvisor.Location
 
 	// url := "https://www.tripadvisor.com/Hotel_Review-g298085-d27540572-Reviews-V_hotel_Da_Nang_Beach-Da_Nang.html"
-	languages := "en | vi | ko | ja | fr | ru | zhCN | zhTW"
+	languages := "en | vi | zhCN | zhTW | ja | ko | fr | de | es | pt | ru | it | ar | hi | th | ms | id | tr | nl | pl | sv | uk | fa | he | cs | ro | hu | el | da | fi | no"
 	fileType := "json"
 
 	config, err := config.NewConfig(url, languages, fileType)
